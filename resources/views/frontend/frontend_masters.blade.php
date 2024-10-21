@@ -10,7 +10,7 @@
     <title>@yield('title', 'UNIMED')</title>
 
     @php
-        $getSystemSettingsApp = App\Models\settings::getSingle();
+    $getSystemSettingsApp = App\Models\settings::getSingle();
     @endphp
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ url($getSystemSettingsApp->favicon) }}">
@@ -49,12 +49,12 @@
                     <div class="topbar">
                         <div class="d-block d-md-flex align-items-center text-center">
                             <div class="me-0 me-sm-3 mb-3 mb-md-0 d-block d-sm-inline-block">
-                                <a href="#"><i
-                                        class="far fa-envelope me-2"></i>{{ $getSystemSettingsApp->email2 }}</a>
+                                <a href="#"><i class="far fa-envelope me-2"></i>{{ $getSystemSettingsApp->email2 }}</a>
                             </div>
                             <div class="me-auto mb-3 mb-md-0 d-block d-sm-inline-block">
                                 <a href="tel:{{ $getSystemSettingsApp->phone1 }}"><i
-                                        class="fa fa-phone me-2 fa fa-flip-horizontal"></i>{{ $getSystemSettingsApp->phone1 }}</a>
+                                        class="fa fa-phone me-2 fa fa-flip-horizontal"></i>{{
+                                    $getSystemSettingsApp->phone1 }}</a>
                             </div>
                             <div class="social d-block d-sm-inline-block">
                                 <ul class="list-unstyled">
@@ -83,95 +83,46 @@
                     </a>
                     <div class="navbar-collapse collapse justify-content-center">
                         <ul class="nav navbar-nav">
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link" href="{{ url('/') }}" id="navbarDropdown"aria-haspopup="true"
+                            <li class="nav-item dropdown {{ Request::is('/') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('/') }}" id="navbarDropdown" aria-haspopup="true"
                                     aria-expanded="false">Home</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ Request::is('about') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('about') }}" aria-haspopup="true"
                                     aria-expanded="false">About Us</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ Request::is('service') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('service') }}" aria-haspopup="true"
                                     aria-expanded="false">Services</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ Request::is('gallery') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('gallery') }}" aria-haspopup="true"
                                     aria-expanded="false">Gallery</a>
                             </li>
-                            {{-- <li class="dropdown nav-item">
-                  <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown">Pages<i class="far fa-plus-square"></i></a>
-                  <ul class="dropdown-menu megamenu dropdown-menu-lg">
-                    <li>
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <h6 class="mb-3 nav-title">Pages</h6>
-                          <ul class="list-unstyled mt-lg-3">
-                            <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                            <li><a class="dropdown-item" href="about-me.html">About Me</a></li>
-                            <li><a class="dropdown-item" href="team.html">Team</a></li>
-                            <li><a class="dropdown-item" href="team-single.html">Team Single</a></li>
-                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-                            <li><a class="dropdown-item" href="before-after.html">Before After</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-sm-4">
-                          <h6 class="mb-3 nav-title">Pages</h6>
-                          <ul class="list-unstyled mt-lg-3">
-                            <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
-                            <li><a class="dropdown-item" href="faqs.html">Faqs</a></li>
-                            <li><a class="dropdown-item" href="appointment.html">Appointment</a></li>
-                            <li><a class="dropdown-item" href="cost-calculator.html">Cost Calculator</a></li>
-                            <li><a class="dropdown-item" href="timetable.html">Timetable</a></li>
-                            <li><a class="dropdown-item" href="working-hours.html">Working Hours</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-sm-4">
-                          <h6 class="mb-3 nav-title">Pages</h6>
-                          <ul class="list-unstyled mt-lg-3">
-                            <li><a class="dropdown-item" href="login.html">Login</a></li>
-                            <li><a class="dropdown-item" href="register.html">Register</a></li>
-                            <li><a class="dropdown-item" href="error-404.html">Error 404</a></li>
-                            <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
-                            <li><a class="dropdown-item" href="terms-and-conditions.html">T&C</a></li>
-                            <li><a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li> --}}
-                            {{-- <li class="dropdown nav-item">
-                  <a href="properties.html" class="nav-link" data-toggle="dropdown">Services<i class="far fa-plus-square"></i></a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="service.html">Service</a></li>
-                    <li><a class="dropdown-item" href="departments.html">Departments</a></li>
-                    <li><a class="dropdown-item" href="service-detail.html">Service Detail</a></li>
-                  </ul>
-                </li> --}}
-                            <li class="dropdown nav-item">
+                            <li class="dropdown nav-item {{ Request::is('department*') ? 'active' : '' }}">
                                 <a href="#" class="nav-link" data-toggle="dropdown">Departments<i
                                         class="far fa-plus-square"></i></a>
                                 @php
-                                    $dept = App\Models\category::all();
+                                $dept = App\Models\category::all();
                                 @endphp
                                 <ul class="dropdown-menu">
                                     @foreach ($dept as $item)
-                                        <li><a class="dropdown-item text-uppercase"
-                                                href="{{ route('department', $item->id) }}">{{ $item->name }}</a>
-                                        </li>
+                                    <li><a class="dropdown-item text-uppercase"
+                                            href="{{ route('department', $item->id) }}">{{ $item->name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('contact') }}">
                                     Contact Us
                                 </a>
                             </li>
                         </ul>
+
                     </div>
                     <div class="add-listing d-none d-sm-block">
-                        <a class="btn btn-outline-primary" href="#"><i class="fa fa-address-book"></i>Get a
+                        <a class="btn btn-outline-primary" href="{{ route('contact') }}"><i
+                                class="fa fa-address-book"></i>Get a
                             quote</a>
                     </div>
                 </nav>
@@ -189,8 +140,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <a href="index.html" class="footer-logo"><img class="img-fluid" src="{{ $getSystemSettingsApp->logo }}"
-                            alt="" width="173px" height="48px"></a>
+                    <a href="index.html" class="footer-logo"><img class="img-fluid"
+                            src="{{ $getSystemSettingsApp->logo }}" alt="" width="173px" height="48px"></a>
                     <p>{{ $getSystemSettingsApp->footer_description }}</p>
                     <div class="social-icon mt-3 mt-md-5">
                         <ul>
@@ -198,8 +149,8 @@
                             </li>
                             <li><a href="{{ $getSystemSettingsApp->twitter }}"><i class="fab fa-twitter"></i></a>
                             </li>
-                            <li><a href="{{ $getSystemSettingsApp->linkedin }}"><i
-                                        class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ $getSystemSettingsApp->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
                             <li><a href="{{ $getSystemSettingsApp->instagram }}"><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
@@ -211,11 +162,13 @@
                         <ul class="list-unstyled mb-0">
                             <li><a href="{{ route('about') }}">About Us</a></li>
                             <li><a href="{{ route('service') }}">Services</a></li>
-                            <li><a href="cost-calculator.html">Contact Us</a></li>
+                            <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         </ul>
                         <ul class="list-unstyled mb-0">
                             @foreach ($dept as $item)
-                                <li><a class="text-capitalize" href="{{ route('department', $item->id) }}">{{ $item->name }}</a></li>
+                            <li><a class="text-capitalize" href="{{ route('department', $item->id) }}">{{ $item->name
+                                    }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -224,34 +177,42 @@
                     <h6 class="text-primary">Our Newsletter</h6>
                     <div class="footer-contact-info">
                         <ul class="list-unstyled mb-0">
-                            <li><i class="fas fa-fw fa-map-marker-alt text-primary"></i><span>{{ $getSystemSettingsApp->address }}</span></li>
-                            <li><i class="fas fa-fw fa-phone-alt text-primary"></i><span>{{ $getSystemSettingsApp->phone1 }}</span></li>
+                            <li><i class="fas fa-fw fa-map-marker-alt text-primary"></i><span>{{
+                                    $getSystemSettingsApp->address }}</span>
+                            </li>
+                            <li><i class="fas fa-fw fa-phone-alt text-primary"></i><span>{{
+                                    $getSystemSettingsApp->phone1 }}</span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="footer-subscribe">
+                    {{-- <div class="footer-subscribe">
                         <p>Sign up to our newsletter to get the latest news and offers.</p>
                         <form>
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Enter your email">
                             </div>
-                            <button type="submit" class="btn btn-primary"><i
-                                    class="far fa-paper-plane"></i></button>
+                            <button type="submit" class="btn btn-primary"><i class="far fa-paper-plane"></i></button>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
                     <h6 class="text-primary">Opening Hours</h6>
                     <div class="opening-time">
-                      <ul class="list-unstyled">
-                        <li><i class="far fa-clock pe-1 text-primary"></i> Mon - Tue<span class="float-end">08:30 - 18:30</span></li>
-                        <li><i class="far fa-clock pe-1 text-primary"></i> Wed- Thu<span class="float-end">08:30 - 18:30</span></li>
-                        <li><i class="far fa-clock pe-1 text-primary"></i> Friday<span class="float-end">08:30 - 18:30</span></li>
-                        <li><i class="far fa-clock pe-1 text-primary"></i> Saturday<span class="float-end">08:30 - 18:30</span></li>
-                        <li><i class="far fa-clock pe-1 text-primary"></i> Sunday<span class="float-end">09:30 - 15:30</span></li>
-                        <li class="text-primary">Emergency<span class="float-end">24 hours</span></li>
-                      </ul>
+                        <ul class="list-unstyled">
+                            <li><i class="far fa-clock pe-1 text-primary"></i> Mon - Tue<span class="float-end">08:30
+                                    - 18:30</span></li>
+                            <li><i class="far fa-clock pe-1 text-primary"></i> Wed- Thu<span class="float-end">08:30 -
+                                    18:30</span></li>
+                            <li><i class="far fa-clock pe-1 text-primary"></i> Friday<span class="float-end">08:30 -
+                                    18:30</span></li>
+                            <li><i class="far fa-clock pe-1 text-primary"></i> Saturday<span class="float-end">08:30 -
+                                    18:30</span></li>
+                            <li><i class="far fa-clock pe-1 text-primary"></i> Sunday<span class="float-end">09:30 -
+                                    15:30</span></li>
+                            <li class="text-primary">Emergency<span class="float-end">24 hours</span></li>
+                        </ul>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -262,7 +223,7 @@
                                 <script>
                                     document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
                                 </script>
-                            </span> <a href="index.html"> medileaf </a> All Rights Reserved</p>
+                            </span> <a href="{{ route('frontend') }}"> {{ $getSystemSettingsApp->name }} </a> All Rights Reserved</p>
                     </div>
                     {{-- <div class="col-md-6 text-center text-md-end">
                         <div class="">

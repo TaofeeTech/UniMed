@@ -94,6 +94,7 @@ class HomeController extends Controller
         $services = service::latest()
             ->get();
         $departments = departments::whereNot('category_id', null)
+            ->limit(3)
             ->get();
 
         return view('frontend.services', compact('services', 'departments'));
@@ -103,6 +104,7 @@ class HomeController extends Controller
     public function AboutUs()
     {
         $departments = departments::whereNot('category_id', null)
+            ->limit(3)
             ->get();
 
         return view('frontend.about-us', compact('departments'));
@@ -127,6 +129,7 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
         $departments = departments::whereNot('category_id', null)
+            ->limit(3)
             ->get();
 
         return view('frontend.index', compact('services', 'departments'));

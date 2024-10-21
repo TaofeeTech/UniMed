@@ -110,7 +110,7 @@
                             <div class="widget-services-care text-center">
                                 <div class="services-care-icon mb-3"><i class="flaticon-support"></i></div>
                                 <h3 class="services-care-title text-white mb-4">Medical Care Services</h3>
-                                <a href="contact-us.html" class="btn btn-white">Contact us</a>
+                                <a href="{{ route('contact') }}" class="btn btn-white">Contact us</a>
                             </div>
                         </div>
                         <!-- Care Services -->

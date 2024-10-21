@@ -104,7 +104,7 @@
                         <img class="img-fluid me-3" src="images/sign.png" alt="" />
                         <div class="author-text ps-3">
                             <h5 class="text-primary">Michael Jordan</h5>
-                            <p class="mb-0 text-secondary">CEO & Founder</p>
+                            <p class="mb-0 text-secondary">Chief Medical Director</p>
                         </div>
                     </div>
                 </div>
@@ -254,120 +254,4 @@
     </section>
     <!--=================================
                       Team -->
-
-    <!--=================================
-                      Testimonial -->
-    <section class="space-pb">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12" style="background-image: url(images/pattern.png)">
-                    <!-- Owl-carousel -->
-                    <div class="owl-carousel testimonial" data-nav-arrow="false" data-items="1" data-md-items="1"
-                        data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0" data-autoheight="true"
-                        style="background-image: url(images/pattern.png)">
-                        <!-- Testimonial-01 START -->
-                        <div class="item">
-                            <div class="testimonial-item">
-                                <div class="testimonial-avatar">
-                                    <img class="img-fluid rounded-circle" src="images/avatar/09.jpg" alt="" />
-                                </div>
-                                <div class="testimonial-content">
-                                    I have gotten at least 50 times the value from Medileaf. I
-                                    will let my mum know about this, she could really make use
-                                    of Medileaf! Wow what great service, I love it! Medileaf is
-                                    the real deal!
-                                </div>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name">
-                                        <div class="testimonial-quote">
-                                            <i class="flaticon-left-quote"></i>
-                                        </div>
-                                        <h6 class="mb-1">Alice Williams</h6>
-                                        <span>- Mother.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial-01 END -->
-
-                        <!-- Testimonial-02 START -->
-                        <div class="item">
-                            <div class="testimonial-item">
-                                <div class="testimonial-avatar">
-                                    <img class="img-fluid rounded-circle" src="images/avatar/04.jpg" alt="" />
-                                </div>
-                                <div class="testimonial-content">
-                                    We were treated like royalty. Needless to say we are
-                                    extremely satisfied with the results. Thank you for making
-                                    it painless, pleasant and most of all hassle free! It fits
-                                    our needs perfectly.
-                                </div>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name">
-                                        <div class="testimonial-quote">
-                                            <i class="flaticon-left-quote"></i>
-                                        </div>
-                                        <h6 class="mb-1">Felica Queen</h6>
-                                        <span>- Cancer client.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial-02 END -->
-
-                        <!-- Testimonial-03 START -->
-                        <div class="item">
-                            <div class="testimonial-item">
-                                <div class="testimonial-avatar">
-                                    <img class="img-fluid rounded-circle" src="images/avatar/03.jpg" alt="" />
-                                </div>
-                                <div class="testimonial-content">
-                                    We've seen amazing results already. Since I invested in
-                                    Medileaf I made over 100,000 dollars profits. It's the
-                                    perfect solution for our business. I was amazed at the
-                                    quality of Medileaf.
-                                </div>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name">
-                                        <div class="testimonial-quote">
-                                            <i class="flaticon-left-quote"></i>
-                                        </div>
-                                        <h6 class="mb-1">Paul Flavius</h6>
-                                        <span>- Heather.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial-03 END -->
-
-                        <!-- Testimonial-04 START -->
-                        <div class="item">
-                            <div class="testimonial-item">
-                                <div class="testimonial-avatar">
-                                    <img class="img-fluid rounded-circle" src="images/avatar/05.jpg" alt="" />
-                                </div>
-                                <div class="testimonial-content">
-                                    I love Medileaf. I have gotten at least 50 times the value
-                                    from Medileaf. I STRONGLY recommend Medileaf to EVERYONE
-                                    interested in running a successful online business!
-                                </div>
-                                <div class="testimonial-author">
-                                    <div class="testimonial-name">
-                                        <div class="testimonial-quote">
-                                            <i class="flaticon-left-quote"></i>
-                                        </div>
-                                        <h6 class="mb-1">Harry Russell</h6>
-                                        <span>- Surgery client.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial-04 END -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--=================================
-                      Testimonial -->
 @endsection
