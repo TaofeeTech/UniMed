@@ -2,17 +2,61 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
-use App\Models\category;
-use App\Models\department_team;
-use App\Models\departments;
+use App\Models\contact;
 use App\Models\gallery;
-use App\Models\galleryCategory;
 use App\Models\service;
+use App\Models\category;
+use App\Models\settings;
+use App\Models\departments;
 use Illuminate\Http\Request;
+use App\Models\department_team;
+use App\Models\galleryCategory;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+
+    public function sendContactMessage(Request $request)
+    {
+
+        $validatedData = $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'subject' => ['required', 'string'],
+            'message' => ['required', 'string'],
+            'phone' => ['required']
+        ]);
+
+        try {
+
+            $contact = new contact();
+
+            $contact->name = $validatedData['name'];
+            $contact->email = $validatedData['email'];
+            $contact->subject = $validatedData['subject'];
+            $contact->message = $validatedData['message'];
+            $contact->phone = $validatedData['phone'];
+
+            $contact->save();
+
+            return back()->with('mssg', 'Message Sent Successfully');
+
+        } catch (\Exception $e) {
+
+            return back()->with('mssg', throw $e);
+
+        }
+
+    }//end method
+
+    public function ContactUs()
+    {
+
+        $getSystemSettingsApp = settings::getSingle();
+
+        return view('frontend.contact-us', compact('getSystemSettingsApp'));
+
+    }//end method
 
     public function Gallery()
     {

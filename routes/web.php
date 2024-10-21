@@ -46,6 +46,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get("/service", "Services")->name('service');
     Route::get("/department/{id}", "Department")->name('department');
     Route::get("/gallery", "Gallery")->name('gallery');
+    Route::get("/contact", "ContactUs")->name('contact');
+    Route::post("/contact/message", "sendContactMessage")->name('contact.message');
 
 });
 
